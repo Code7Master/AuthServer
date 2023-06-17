@@ -1,6 +1,11 @@
 package main
 
-import "DevelopHub/AuthServer/initializers"
+import (
+	"DevelopHub/AuthServer/controller"
+	"DevelopHub/AuthServer/initializers"
+
+	"github.com/gin-gonic/gin"
+)
 
 func init() {
 	initializers.LoadEnvVariables()
@@ -9,5 +14,9 @@ func init() {
 }
 
 func main() {
+	engine := gin.Default()
 
+	engine.POST("/auth/register", controller.Register)
+
+	engine.Run(":9190")
 }
