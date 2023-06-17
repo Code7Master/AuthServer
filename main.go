@@ -17,6 +17,7 @@ func main() {
 	engine := gin.Default()
 
 	engine.POST("/auth/register", controller.Register)
+	engine.POST("/auth/login", controller.Login)
 
 	engine.Run(":9190")
 }
