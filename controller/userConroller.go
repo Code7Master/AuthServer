@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"DevelopHub/AuthServer/initializers"
-	"DevelopHub/AuthServer/models"
+	"AuthServer/initializers"
+	"AuthServer/models"
 	"net/http"
 	"os"
 	"time"
@@ -119,4 +119,12 @@ func Login(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{
 		"token": tokenString,
 	})
+}
+
+func Logout(context *gin.Context) {
+	context.SetCookie("Authorization", "", -1, "", "", false, true)
+	context.JSON(http.StatusOK, gin.H{
+		"message": "Success logout",
+	})
+
 }
