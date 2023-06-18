@@ -1,6 +1,6 @@
 package initializers
 
-import "DevelopHub/AuthServer/models"
+import "AuthServer/models"
 
 func SyncDatabase() {
 	DB.AutoMigrate(new(models.User))
